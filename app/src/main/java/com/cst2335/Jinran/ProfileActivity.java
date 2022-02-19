@@ -23,7 +23,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class ProfileActivity extends AppCompatActivity {
 
     private static final String TAG = "PROFILE_ACTIVITY";
-    ImageButton ImgButton = (ImageButton)findViewById(R.id.imageButton);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +35,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         EditText emailEdit = findViewById(R.id.editTextTextEmailAddress);
         emailEdit.setText(fromMain.getStringExtra("EMAIL"));
-
+        ImageButton ImgButton = (ImageButton)findViewById(R.id.imageButton);
         ImgButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

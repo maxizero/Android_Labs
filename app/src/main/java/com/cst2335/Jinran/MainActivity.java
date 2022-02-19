@@ -15,19 +15,15 @@ import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button loginBtn = findViewById(R.id.loginBtn);
-    SharedPreferences prefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
+        Button loginBtn = findViewById(R.id.loginBtn);
         loginBtn.setOnClickListener(clk -> {
+            SharedPreferences prefs = getSharedPreferences("MyData", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = prefs.edit();
             Intent goToProfile = new Intent(MainActivity.this, ProfileActivity.class);
             EditText editTextEmail = findViewById(R.id.editTextEmail);
@@ -36,6 +32,12 @@ public class MainActivity extends AppCompatActivity {
             editor.apply();
             startActivity( goToProfile);
         });
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
     }
 
 }
